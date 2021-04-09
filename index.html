@@ -105,7 +105,7 @@ img{
 <!-- this is the part where I have the part for the projects -->
     <div class="mdc-card template">
   <div class="mdc-card__primary-action">
-    <div class="mdc-card__media mdc-card__media--square">
+    <div class="mdc-card__media mdc-card__media--16-9">
       <div class="mdc-card__media-content">Title</div>
     </div>
     <!-- ... additional primary action content ... -->
@@ -142,10 +142,14 @@ img{
         console.log(clone);
         clone.querySelector(".mdc-card__media-content").innerText = project.name;
         clone.querySelector(".mdc-card__media-content").innerText = project.tech;
+//         for the i
+
         clone.querySelectorAll(".mdc-button__label")[0].innerText = "View Page"
         clone.querySelectorAll(".mdc-button__label")[0].setAttribute("href",project.url_to_page)
         clone.querySelectorAll(".mdc-button__label")[1].innerText = "View Repo"
         clone.querySelectorAll(".mdc-button__label")[1].setAttribute("href",project.url_to_repo)
+        clone.querySelector(".mdc-card__media.mdc-card__media--16-9").style.backgroundImage = project.image;
+
 
 
 // document.getElementsByTagName("H1")[0].setAttribute("class", "democlass");
@@ -154,10 +158,17 @@ img{
 
         document.body.append(clone);
 
-//         for the buttons
-           clone.querySelectorAll(".mdc-button__label")[0].addEventListener("click", (event) => { 
+//         for the button View Page
+           clone.querySelectorAll(".mdc-card__action--button")[0].addEventListener("click", (event) => { 
              console.log("words");
            let url = clone.querySelectorAll(".mdc-button__label")[0].getAttribute("href");
+             window.open(url)
+           }); 
+//         fro the repopage
+        
+        clone.querySelectorAll(".mdc-card__action--button")[1].addEventListener("click", (event) => { 
+             console.log("words");
+           let url = clone.querySelectorAll(".mdc-button__label")[1].getAttribute("href");
              window.open(url)
            }); 
 
