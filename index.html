@@ -16,15 +16,6 @@
       </style>
     <title>lab12</title>
 <!--  this is from week 12   -->
-    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-<script>
-  window.OneSignal = window.OneSignal || [];
-  OneSignal.push(function() {
-    OneSignal.init({
-      appId: "6e0ab26a-9a8c-4b77-9cfb-de80aeaa2e4e",
-    });
-  });
-</script>
     
   </head>
   <body>
@@ -152,21 +143,32 @@ img{
         clone.querySelector(".mdc-card__media-content").innerText = project.name;
         clone.querySelector(".mdc-card__media-content").innerText = project.tech;
         clone.querySelectorAll(".mdc-button__label")[0].innerText = "View Page"
-
+        clone.querySelectorAll(".mdc-button__label")[0].setAttribute("href",project.url_to_page)
         clone.querySelectorAll(".mdc-button__label")[1].innerText = "View Repo"
+        clone.querySelectorAll(".mdc-button__label")[1].setAttribute("href",project.url_to_repo)
 
 
+// document.getElementsByTagName("H1")[0].setAttribute("class", "democlass");
         clone.classList.remove("template");
 
 
         document.body.append(clone);
 
+//         for the buttons
+           clone.querySelectorAll(".mdc-button__label")[0].addEventListener("click", (event) => { 
+             console.log("words");
+           let url = clone.querySelectorAll(".mdc-button__label")[0].getAttribute("href");
+             window.open(url)
+           }); 
 
+// document.addEventListener("click", (event) => { });{
+//   document.getElementById("demo").innerHTML = "Hello World";
+// });
       })
 
 
 
-      let snackbar = mdc.snackbar.MDCSnackbar.attachTo(document.querySelector('.mdc-snackbar'));
+//       let snackbar = mdc.snackbar.MDCSnackbar.attachTo(document.querySelector('.mdc-snackbar'));
 
 
     // Define your database
